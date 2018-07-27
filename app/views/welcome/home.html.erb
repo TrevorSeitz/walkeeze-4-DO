@@ -1,9 +1,26 @@
 <% if session[:user_id] %>
-  <%= "Welcome #{current_user.name} to Walk-eze " %>
+  <%= "Welcome #{@user.name} to Walk-eze " %>
 
-  <p><%= button_to "Go to your Page", user_path(current_user.id), {method: :get} %></p>
+  <p><%= button_to "Go to your Page", user_path(@user), {method: :get} %></p>
   <p><%= button_to "Book a Walk", walks_path, {method: :get} %></p><br>
 <% else %>
-  <%= link_to('Sign in with Github', '/auth/github') %>
+
   <%#= link_to('Log in with Facebook!', '/auth/facebook') %>
+  <%#= link_to('Log in with Github!', '/auth/github') %>
+  <p>
+    <strong>Don't use these GitHub?</strong><br>
+    <%= link_to "Create an account", new_user_path %> or login below.
+  </p>
+
+  <%= form_tag "/login" do %>
+    <div class="field">
+      <%= label_tag :email, "Email" %><br>
+      <%= text_field_tag :email %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %><br>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions"><%= submit_tag "Login" %></div>
+  <% end %>
 <% end %>
