@@ -12,6 +12,24 @@
 
 ActiveRecord::Schema.define(version: 2018_07_26_211601) do
 
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.string "breed"
+    t.integer "age"
+    t.integer "user_id"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dogs_walks", force: :cascade do |t|
+    t.text "notes"
+    t.integer "dog_id"
+    t.integer "walk_id"
+    t.index ["dog_id"], name: "index_dogs_walks_on_dog_id"
+    t.index ["walk_id"], name: "index_dogs_walks_on_walk_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -19,6 +37,17 @@ ActiveRecord::Schema.define(version: 2018_07_26_211601) do
     t.string "image"
     t.string "password_digest"
     t.string "provider"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "walks", force: :cascade do |t|
+    t.string "walker_name"
+    t.date "date"
+    t.time "time"
+    t.integer "length"
+    t.integer "available_spots"
+    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
