@@ -2,6 +2,7 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
+    @user = User.find(session[:user_id])
   end
 
   def index
@@ -23,6 +24,7 @@ class DogsController < ApplicationController
 
   def update
     @dog = Dog.find(params[:id])
+    @user = User.find(session[:user_id])
   end
 
   def show
