@@ -23,7 +23,7 @@
           <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
           <a class="navbar-brand">
             <% if session[:user_id] %>
-              Logged in as <strong><%= current_user.name %></strong>.
+              Logged in as <strong><%= @user.name %></strong>.
               <%= link_to('Logout', signout_path) %>
             <% else %>
               <%#= link_to "Sign up", new_user_registration_path %> |

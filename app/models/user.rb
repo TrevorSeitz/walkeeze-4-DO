@@ -2,7 +2,12 @@ class User< OmniAuth::Identity::Models::ActiveRecord
   has_secure_password
   validates_presence_of :name
   validates_uniqueness_of :email
-  
+
+
+  has_many :dogs
+  has_many :walks, through: :dogs
+
+
   def self.from_omniauth(auth)
     find_by_provider_and_uid(auth["provider"], auth["uid"]) ||create_with_omniauth(auth)
   end
