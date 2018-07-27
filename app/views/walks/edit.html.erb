@@ -1,0 +1,9 @@
+This is the walks Edit page
+
+
+<%= render partial: 'form', locals: { walk: @walk } %>
+
+<%= render partial: 'add_dogs', locals: { walk: @walk, dogs: @dogs } %>
+
+
+<p><%= button_to "Go to your Page", user_path(current_user.id), {method: :get} %></p>
