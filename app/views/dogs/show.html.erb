@@ -4,14 +4,13 @@
 <p>Age: <%= @dog.age %></p>
 <p>Notes: <br><%= @dog.notes %><br><br>
 
-
 <p><%= "Scheduled walks" %></p>
 <% @dog.walks.each do |w| %>
   <% if w.date.today? %>
     <%"Today's walk" %>
-    <%= link_to "#{w.date} @ #{w.time} with #{w.walker_name}", dog_walk_path(w) %><br>
+    <%= link_to "#{w.date} @ #{w.time} with #{w.walker_name}", walk_path(w) %><br>
   <% else %>
-    <%= link_to "#{w.date} @ #{w.time} with #{w.walker_name}", dog_walk_path(w) %><br>
+    <%= link_to "#{w.date} @ #{w.time} with #{w.walker_name}", walk_path(w) %><br>
   <% end %>
 <% end %><br><br>
 

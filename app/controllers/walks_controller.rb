@@ -5,17 +5,6 @@ class WalksController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
-  # def create
-  #   @walk = Walk.find(params[:id].to_i)
-  #   # if (params[:dog_ids].map(&:to_i) & @walk.dogs.ids).count > walk.available_spots
-  #   # return error
-  #   #byebug
-  #   @walk.dogs = Dog.where(id: params[:dog_ids])
-  #   @walk.save
-  #
-  #   redirect_to user_path(current_user)
-  # end
-
   def create
     @user = User.find(session[:user_id])
     @walk = Walk.find(params[:id].to_i)
