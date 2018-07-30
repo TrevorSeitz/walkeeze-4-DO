@@ -7,7 +7,7 @@
           <% if d.user.id == current_user[:id] %>
             <%= form_for walk do |f| %>
               <%= hidden_field_tag(:dog_id, d.id) %>
-              <%= text_field_tag("note", params[:note], :size => 15, :placeholder=> "") %>
+              <%= text_field_tag("note", params[:note], :size => 15, :placeholder=> d.current_dog_walk(walk).notes) %>
               <%= button_to 'Add Note', {:action => "update"}, {:method => :patch } %>
             <% end %>
           <% end %>
