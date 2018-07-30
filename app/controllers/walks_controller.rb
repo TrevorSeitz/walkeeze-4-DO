@@ -2,11 +2,9 @@ class WalksController < ApplicationController
 
   def index
     @walks = Walk.all
-    @user = User.find(session[:user_id])
   end
 
   def create
-    @user = User.find(session[:user_id])
     @walk = Walk.find(params[:id].to_i)
     if params[:dog_ids]
       params[:dog_ids].map(&:to_i).each do |d|
@@ -41,19 +39,16 @@ class WalksController < ApplicationController
     @dog_walk = DogsWalk.find(@dogs_walk_id.ids)[0]
     @dog_walk.notes = params[:note]
     @dog_walk.save
-    @user = User.find(session[:user_id])
     redirect_to walk_path(params[:id])
   end
 
   def edit
     @walk = Walk.find(params[:id].to_i)
-    @user = User.find(session[:user_id])
     @dogs = Dog.where(user_id: @user.id)
   end
 
   def show
     @walk = Walk.find(params[:id].to_i)
-    @user = User.find(session[:user_id])
   end
 
 

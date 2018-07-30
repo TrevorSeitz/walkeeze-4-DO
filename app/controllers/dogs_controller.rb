@@ -2,7 +2,6 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
-    @user = User.find(session[:user_id])
   end
 
   def index
@@ -10,10 +9,7 @@ class DogsController < ApplicationController
   end
 
   def create
-    @user = User.find(session[:user_id])
-    @dog = Dog.create(dog_params)
-    # byebug
-    @dog.user_id = @user.id
+    @dog = current_user.dogs.build(dog_params)
     @dog.save
     if @dog.valid?
       redirect_to user_path(@user)
@@ -24,11 +20,9 @@ class DogsController < ApplicationController
 
   def update
     @dog = Dog.find(params[:id])
-    @user = User.find(session[:user_id])
   end
 
   def show
-    @user = User.find(session[:user_id])
     @dog = Dog.find(params[:id])
   end
 
