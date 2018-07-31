@@ -6,11 +6,14 @@ class Dog < ApplicationRecord
   has_many :walks, through: :dogs_walks
 
   accepts_nested_attributes_for :dogs_walks
-    # belongs_to :user
-    # has_and_belongs_to_many :walks
 
   def current_dog_walk(walk)
     DogsWalk.find_by(dog_id: self.id, walk_id:  walk.id)
+  end
+
+  def self.most_walks
+    @walk_count = DogsWalk.group("dog_id").order("count_dog_id desc").count("dog_id")
+    @dog = Dog.find(@walk_count.keys[0])
   end
 
 end

@@ -1,12 +1,19 @@
 <% if session[:user_id] %>
-  <%= "Welcome #{@user.name} to Walk-eze " %>
+
+  <%= "Currently, Walkeeze's most active dog is:" %>
+  <%= "#{Dog.most_walks.name}, with a total of #{Dog.most_walks.dogs_walks.count} walks!" %><br><br>
+
+  <%= "Welcome to Walk-eze #{@user.name}! " %><br><br>
+
 
   <p><%= button_to "Go to your Page", user_path(@user), {method: :get} %></p>
   <p><%= button_to "Book a Walk", walks_path, {method: :get} %></p><br>
 <% else %>
-<%= "Walk-eze - the easiest way to get your dog walked!" %>
-  <%#= link_to('Log in with Facebook!', '/auth/facebook') %>
-  <%#= link_to('Log in with Github!', '/auth/github') %>
+<%= "Walk-eze - the easiest way to get your dog walked!" %><br><br>
+
+<%= "Join our most active dog #{Dog.most_walks.name}, who so far has a total of #{Dog.most_walks.dogs_walks.count} walks!" %><br><br>
+
+
   <p>
     <strong>Don't use GitHub?</strong><br>
     <%= link_to "Create an account", new_user_path %> or login below.

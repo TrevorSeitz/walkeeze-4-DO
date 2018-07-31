@@ -13,6 +13,7 @@ class User< OmniAuth::Identity::Models::ActiveRecord
   end
 
   require 'securerandom'
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -21,13 +22,5 @@ class User< OmniAuth::Identity::Models::ActiveRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-  # require 'securerandom'
-  # def self.create_with_omniauth(auth)
-  #   create! do |user|
-  #       user.provider = auth.provider
-  #       user.uid = auth.uid
-  #       user.name = auth.info.name
-  #       user.password = SecureRandom.urlsafe_base64
-  #   end
-  # end
+
 end
