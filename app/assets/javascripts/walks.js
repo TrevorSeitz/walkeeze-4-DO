@@ -12,11 +12,15 @@ function attachListeners() {
     }).done(function(data) {
       // console.log(data);
       // debugger;
-      data.map(function(w) {
-        $("div.walks").append(
-          `<li>${w.date} @ ${w.time} with ${w.walker_name}</li>`
-        );
-      });
+      if (data.length === 0) {
+        $("div.walks").append(`<li>There are no walks scheduled.</li>`);
+      } else {
+        data.map(function(w) {
+          $("div.walks").append(
+            `<li>${w.date} @ ${w.time} with ${w.walker_name}</li>`
+          );
+        });
+      }
     });
     e.preventDefault();
   });
