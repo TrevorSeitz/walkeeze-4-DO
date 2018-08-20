@@ -14,3 +14,4 @@
 //= require activestorage
 //= require_tree .
 //= require paloma
+//= require walks
