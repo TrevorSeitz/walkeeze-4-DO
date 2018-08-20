@@ -1,8 +1,11 @@
-
+<%#= javascript_include_tag('walks.js') %>
 <h2><%= @dog.name %></h2>
 <p>Breed: <%= @dog.breed %></p>
 <p>Age: <%= @dog.age %></p>
 <p>Notes: <br><%= @dog.notes %><br><br>
+
+<!-- <button id="see-walks">Scheduled walks</button> -->
+<%= link_to 'See Scheduled Walks', schedule_path(@dog), :class => 'load walks' %>
 
 <p><%= "Scheduled walks" %></p>
 <% @dog.walks.each do |w| %>

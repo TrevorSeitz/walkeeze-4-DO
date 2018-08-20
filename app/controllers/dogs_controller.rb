@@ -26,6 +26,13 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
   end
 
+  def schedule
+    @dog = Dog.find(params[:id])
+    @walks = @dog.walks
+    # byebug
+    render json: @walks, status: 201
+  end
+
   private
 
   def dog_params

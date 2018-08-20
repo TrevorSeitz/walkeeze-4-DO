@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy', :as => :logout
   get '/login' => 'sessions#new', :as => :login
   get '/auth/github/callback' => 'sessions#create'
+  get 'dogs/:id/schedule' => 'dogs#schedule', :as => :schedule
 
   # match '/update_dogs' => 'walks#crea', via: [:get, :put, :patch, :post]
   match '/login' => 'sessions#new', via: [:get, :post]
