@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new', :as => :login
   get '/auth/github/callback' => 'sessions#create'
   get 'dogs/:id/schedule' => 'dogs#schedule', :as => :schedule
+  post "dogs/create" => 'dogs#create', :as => :create_dog
 
-  # match '/update_dogs' => 'walks#crea', via: [:get, :put, :patch, :post]
   match '/login' => 'sessions#new', via: [:get, :post]
   match '/auth/user/callback' => 'sessions#create', via: [:get, :post]
   match '/auth/user/register', to: 'sessions#create', via: [:get, :post]
