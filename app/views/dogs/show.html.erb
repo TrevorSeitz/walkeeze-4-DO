@@ -4,7 +4,7 @@
 <p>Age: <%= @dog.age %></p>
 <p>Notes: <br><%= @dog.notes %><br><br>
 
-<!-- <button id="see-walks">Scheduled walks</button> -->
+<!-- <button class="load_walks" action"schedule"=>See Scheduled Walks</button> -->
 <p>
 <%= link_to 'See Scheduled Walks', schedule_path(@dog), :class => 'load_walks' %>
 </p>
