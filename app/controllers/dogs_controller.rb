@@ -9,10 +9,11 @@ class DogsController < ApplicationController
   end
 
   def create
+    # byebug
     @dog = current_user.dogs.build(dog_params)
     @dog.save
     if @dog.valid?
-      redirect_to user_path(@user)
+      render json: @dog, status: 201
     else
       redirect_to new_dog_path
     end
