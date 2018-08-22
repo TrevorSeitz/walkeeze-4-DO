@@ -1,13 +1,21 @@
 <h2>Choose from the following walks</h2>
 
 <% @walks.each do |walk| %>
-  <% if walk.available_spots > 0 %>
+  <%# if walk.available_spots > 0 %>
     <%= render partial: 'form', locals: { user: @user, dog: @dog, dogs: @dogs, walk: walk } %>
-    <%= render partial: 'show_dogs', locals: { walk: walk } %>
+    <p><%#= button_to "See Dogs on this Walk!", edit_walk_path(walk.id), {method: :get} %></p>
+    <!-- <button class="walk_list", participants_path(walk.id)>See Dogs on this Walk!</button> -->
+
+    <%= link_to "Show Dogs on this Walk!", participants_path(walk.id), class: "walk_list" %>
+
+    <div class="dog_list<%=walk.id%>">
+
+    </div>
+    <%#= render partial: 'show_dogs', locals: { walk: walk } %>
 
     <p><%= button_to "Book This!", edit_walk_path(walk.id), {method: :get} %></p>
 
-  <% end %><br>
+  <%# end %><br>
 <% end %>
 
 

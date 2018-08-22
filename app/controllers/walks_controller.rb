@@ -39,7 +39,13 @@ class WalksController < ApplicationController
     @dog_walk = DogsWalk.find(@dogs_walk_id.ids)[0]
     @dog_walk.notes = params[:note]
     @dog_walk.save
-    redirect_to walk_path(params[:id])
+    @dog = Dog.find(params[:dog_id])
+    respond_to do |format|
+      format.json  { render :json => {:dog_walk => @dog_walk,
+                                      :dog_name=> @dog.name }}
+    end
+    # redirect_to walk_path(params[:id])
+    # render json: @dog_walk, status: 201
   end
 
   def edit
@@ -49,9 +55,24 @@ class WalksController < ApplicationController
 
   def show
     @walk = Walk.find(params[:id].to_i)
+
   end
 
-
+  def participants
+    @participants = []
+    @walk = Walk.find(params[:id].to_i)
+      @walk.dogs.each do |dog|
+        @participants.push(dog.name)
+          # byebug
+      end
+    # @participants = @walk.dogs.name
+      # byebug
+    # render json: @participants, status: 201
+    respond_to do |format|
+    format.json  { render :json => {:id => params[:id],
+                                    :participants=> @participants }}
+    end
+  end
 
   private
 

@@ -5,13 +5,19 @@
         <div class="form-inline">
           <p><%= d.name %>
           <% if d.user.id == current_user[:id] %>
-            <%= form_for walk do |f| %>
+            <%= form_for walk, :html => {class: "dog_note"} do |f| %>
               <%= hidden_field_tag(:dog_id, d.id) %>
-              <%= text_field_tag("note", params[:note], :size => 15, :placeholder=> d.current_dog_walk(walk).notes) %>
+              <%#= text_field_tag("note", params[:note], :size => 15, :placeholder=> d.current_dog_walk(walk).notes) %>
+              <%= text_field_tag("note", :note, :size => 15) %>
+              <%# byebug %>
               <%= button_to 'Add Note', {:action => "update"}, {:method => :patch } %>
             <% end %>
           <% end %>
       </div>
     </div></p>
   <% end %>
+  <div class="dog_notes">
+    Notes
+
+  </div>
 <% end %>
