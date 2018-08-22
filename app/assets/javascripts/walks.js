@@ -70,9 +70,9 @@ function attachListeners() {
       method: "GET",
       url: this.href
     }).done(function(data) {
+      debugger;
       let position = data.id;
       if (data.participants.length > 0) {
-        debugger;
         $(".dog_list" + position).append(
           `<p>The following dogs are booked for this walk!</p>`,
           // $("data").each(function(data) {

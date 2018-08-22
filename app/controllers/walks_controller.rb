@@ -40,6 +40,7 @@ class WalksController < ApplicationController
     @dog_walk.notes = params[:note]
     @dog_walk.save
     @dog = Dog.find(params[:dog_id])
+    # byebug
     respond_to do |format|
       format.json  { render :json => {:dog_walk => @dog_walk,
                                       :dog_name=> @dog.name }}
