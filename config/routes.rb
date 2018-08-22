@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#create'
   get 'dogs/:id/schedule' => 'dogs#schedule', :as => :schedule
   post "dogs/create" => 'dogs#create', :as => :create_dog
+  get '/walks/:id/participants' => 'walks#participants', :as => :participants
 
   match '/login' => 'sessions#new', via: [:get, :post]
   match '/auth/user/callback' => 'sessions#create', via: [:get, :post]
