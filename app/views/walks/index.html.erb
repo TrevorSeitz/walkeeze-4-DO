@@ -1,21 +1,22 @@
 <h2>Choose from the following walks</h2>
 
 <% @walks.each do |walk| %>
-  <%# if walk.available_spots > 0 %>
-    <%= render partial: 'form', locals: { user: @user, dog: @dog, dogs: @dogs, walk: walk } %>
-    <p><%#= button_to "See Dogs on this Walk!", edit_walk_path(walk.id), {method: :get} %></p>
-    <!-- <button class="walk_list", participants_path(walk.id)>See Dogs on this Walk!</button> -->
+  <%= render partial: 'form', locals: { user: @user, dog: @dog, dogs: @dogs, walk: walk } %>
+  <%#= button_to "See Dogs on this Walk!", edit_walk_path(walk.id), {method: :get} %>
 
-    <%= link_to "Show Dogs on this Walk!", participants_path(walk.id), class: "walk_list" %>
+  <%= link_to "Show Dogs on this Walk!", participants_path(walk.id), class: "walk_list" %>
 
-    <div class="dog_list<%=walk.id%>">
+  <div class="dog_list<%=walk.id%>">
+    <!-- <p>The following dogs are booked for this walk!</p> -->
 
-    </div>
-    <%#= render partial: 'show_dogs', locals: { walk: walk } %>
-
-    <p><%= button_to "Book This!", edit_walk_path(walk.id), {method: :get} %></p>
-
-  <%# end %><br>
+  </div>
+    <ul>
+      <p id="dogs_list"></p>
+    </ul>
+    <ul>
+      <p id="demo"></p>
+    </ul>
+  <p><%= button_to "Book This!", edit_walk_path(walk.id), {method: :get} %></p><br>
 <% end %>
 
 
