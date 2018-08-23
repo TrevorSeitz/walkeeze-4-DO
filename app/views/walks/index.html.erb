@@ -11,11 +11,9 @@
 
   </div>
     <ul>
-      <p id="dogs_list"></p>
+      <p id="dogs_list<%=walk.id%>"></p>
     </ul>
-    <ul>
-      <p id="demo"></p>
-    </ul>
+    
   <p><%= button_to "Book This!", edit_walk_path(walk.id), {method: :get} %></p><br>
 <% end %>
 
