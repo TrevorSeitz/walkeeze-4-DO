@@ -3,7 +3,22 @@ $(function() {
   attachListeners();
 });
 //
+
+class Dog {
+  constructor(name, breed, age, user_id) {
+    this.name = name;
+    this.breed = breed;
+    this.age = age;
+    this.user_id = user_id;
+  }
+  render() {
+    // return "<li>" + this.name + "</li>";
+    return this.name;
+  }
+}
+
 function attachListeners() {
+  // load scheduled walks for a dog
   $("a.load_walks").on("click", function(e) {
     e.preventDefault();
     $.ajax({
@@ -22,6 +37,7 @@ function attachListeners() {
     });
   });
 
+  // create a new dog
   $(".new_dog").on("submit", function(e) {
     e.preventDefault();
     $.ajax({
@@ -44,14 +60,19 @@ function attachListeners() {
     });
   });
 
+  // add a note to a scheduled walk
   $(".dog_note").on("submit", function(e) {
     e.preventDefault();
     $.ajax({
       method: "patch",
       url: this.action,
       data: {
-        dog_id: $(".dog_note :input#dog_id").val(),
-        note: $(".dog_note :input#note").val()
+        dog_id: $(this)
+          .find("#dog_id")
+          .val(),
+        note: $(this)
+          .find("#note")
+          .val()
       }
     }).done(function(data) {
       $("div.dog_notes").append(
@@ -63,24 +84,53 @@ function attachListeners() {
       );
     });
   });
+
+  // show the dogs scheduled for a walk
   $(".walk_list").on("click", function(e) {
-    // debugger;
     e.preventDefault();
     $.ajax({
       method: "GET",
       url: this.href
     }).done(function(data) {
-      debugger;
+      // debugger;
       let position = data.id;
-      if (data.participants.length > 0) {
+      if (data.length > 0) {
         $(".dog_list" + position).append(
-          `<p>The following dogs are booked for this walk!</p>`,
-          // $("data").each(function(data) {
-          `<li>${data.participants},  </li>`
+          `<p>The following dogs are booked for this walk!</p><ul>`,
+          data.dogs.forEach(function(obj) {
+            outerItem = document.getElementById("dogs_list" + position);
+            var picked = (({ name, breed, age, user_id }) => ({
+              name,
+              breed,
+              age,
+              user_id
+            }))(obj);
+            var props = Object.values(picked);
+            var current_dog = new Dog(props[0], props[1], props[2], props[3]);
+            newListItem = document.createElement("li");
+            newdiv = document.createElement("div");
+            newListItem.innerHTML = current_dog.render();
+            outerItem.appendChild(newListItem);
+            newListItem.appendChild(newdiv);
+          })
         );
+        // var elements = ["rock", "paper", "scissor"];
+        //
+        // demoP = document.getElementById("demo");
+        // elements.forEach(function(item, index) {
+        //   newlistitem = document.createElement("li");
+        //   newdiv = document.createElement("div");
+        //   newdiv.setAttribute("style", "border: 5px solid black;");
+        //   newdiv.setAttribute("id", "div_demo");
+        //
+        //   newdiv.innerHTML = "index[" + index + "]: " + item + "<br>";
+        //
+        //   demoP.appendChild(newlistitem);
+        //   newlistitem.appendChild(newdiv);
+        // });
+        // );
       }
     });
   });
-  // });
   // next listener here
 }
