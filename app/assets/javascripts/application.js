@@ -13,5 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-//= require paloma
 //= require walks
+//= require dogsList
+//= require newDog
+//= require dogNote
+//= require showDogs
+//= require loadWalks

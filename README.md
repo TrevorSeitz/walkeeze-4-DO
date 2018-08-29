@@ -12,7 +12,7 @@ Users can create an User Account and then they can add dogs so they can book wal
 
 This app was built with Ruby on Rails, using the Omniauth Gem and the Activeadmin gem for login functionality. The thin gem was used for https access.
 
-Usage: After checking out the repo, run bundle install to install Ruby gem dependencies. You can start a secure ruby server using the thin start --ssl command shotgun and navigate to https://localhost:3000 in your browser.
+Usage: In the terminal, run bundle install to install Ruby gem dependencies, and rake db:seed to seed the DB. You can start a secure ruby server using the thin start --ssl command shotgun and navigate to https://localhost:3000 in your browser.
 
 Contributing Bug reports and pull requests are welcome on GitHub at https://github.com/TrevorSeitz/walkeze.
 
