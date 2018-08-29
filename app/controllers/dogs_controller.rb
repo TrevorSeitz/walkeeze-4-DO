@@ -24,6 +24,8 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @walks = @dog.walks
+    render :json => {:dog => @dog, :walks=> @walks}
   end
 
   def schedule
