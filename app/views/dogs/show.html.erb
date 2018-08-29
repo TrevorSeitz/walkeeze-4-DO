@@ -1,14 +1,5 @@
-<%#= javascript_include_tag('walks.js') %>
-<h2><%= @dog.name %></h2>
-<p>Breed: <%= @dog.breed %></p>
-<p>Age: <%= @dog.age %></p>
-<p>Notes: <br><%= @dog.notes %><br><br>
+<%= render partial: 'show' %>
 
-<p>
-<%= link_to 'See Scheduled Walks', schedule_path(@dog), :class => 'load_walks' %>
-</p>
-<div class="walks">
-
-</div>
+<%= render partial: 'walks_links' %>
 
 <%= render partial: 'links' %>

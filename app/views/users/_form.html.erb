@@ -10,7 +10,7 @@
 Your currently registerd dogs:<br>
 <% if @dogs %>
   <% @dogs.each do |d| %>
-    <%= link_to d.name, user_dog_path(@user.id, d) %><br>
+    <%= link_to d.name, user_dog_path(@user.id, d), :class => 'show_dog'%><br>
   <% end %>
 <% end %><br><br>
 
