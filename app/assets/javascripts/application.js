@@ -15,7 +15,7 @@
 //= require_tree .
 //= require walks
 //= require dogsList
-//= require new_dog
+//= require newDog
 //= require dogNote
 //= require showDogs
 //= require loadWalks
