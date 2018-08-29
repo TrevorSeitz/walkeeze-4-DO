@@ -57,10 +57,10 @@ class WalksController < ApplicationController
   def participants
     @participants = []
     @walk = Walk.find(params[:id].to_i)
-      @walk.dogs.each do |dog|
-        @participants.push(dog)
-      end
-      render :json => @walk, :include => [:dogs]
+    @walk.dogs.each do |dog|
+      @participants.push(dog)
+    end
+    render :json => @walk, :include => [:dogs]
   end
 
   private
