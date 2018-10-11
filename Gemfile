@@ -34,6 +34,8 @@ gem 'dotenv-rails'
 gem 'javascript'
 gem 'jquery-rails'
 gem 'jquery'
+gem 'bootstrap-sass'
+gem "paperclip", "~> 5.0.0"
 # gem 'jquery_ujs'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

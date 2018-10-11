@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :walks
   end
 
+  # root to: "photos#index"
+resources :photos
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'welcome#home'
   get '/update_dogs' => 'walks#update', :as => :update_dogs

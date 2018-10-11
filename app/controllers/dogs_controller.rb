@@ -26,6 +26,10 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
     @walks = @dog.walks
     render :json => {:dog => @dog, :walks=> @walks}
+    # respond_to do |format|
+    #   format.html
+    #   format.json {render json: @dog, include: [:walks]} - use to add walks to dog show on user page
+    # end
   end
 
   def schedule
