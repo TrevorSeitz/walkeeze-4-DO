@@ -1,4 +1,7 @@
 <h1>Hello, <%= @user.name %>!</h1>
+<p>
+  add photo: <%= render partial: 'addphoto', locals: { user: @user, photo: @photo} %>
+</p>
 
 <%= "Currently Scheduled Walks:" %><br>
 <% walks = @user.walks.uniq {|w| w.id } %>

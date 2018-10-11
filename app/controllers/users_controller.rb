@@ -11,4 +11,9 @@ class UsersController < ApplicationController
     @dogs = Dog.where(user_id: @user.id)
   end
 
+  # def update
+  #   @user = User.find(params[:id])
+  #   @user.update_attribute(:avatar, params[:user][:avatar])
+  # end
+
 end
