@@ -1,7 +1,8 @@
 <h1>Hello, <%= @user.name %>!</h1>
 <p>
-  add photo: <%= render partial: 'addphoto', locals: { user: @user, photo: @photo} %>
+  <%= button_to "Edit", edit_user_path(@user), :method => "get" %>add/change photo or update profile.
 </p>
+
 
 <%= "Currently Scheduled Walks:" %><br>
 <% walks = @user.walks.uniq {|w| w.id } %>

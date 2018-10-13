@@ -11,9 +11,20 @@ class UsersController < ApplicationController
     @dogs = Dog.where(user_id: @user.id)
   end
 
-  # def update
-  #   @user = User.find(params[:id])
-  #   @user.update_attribute(:avatar, params[:user][:avatar])
-  # end
+  def update
+    @user = User.find(params[:id])
+      byebug
+    @user.update(name: params[:name], email: params[:email])
+
+    # flash[:notice] = "Update Successful"
+    redirect_to edit_user_path(@user), notice: "Update Successful"
+    
+  end
+
+
+  def edit
+    # byebug
+    @user = User.find(params[:id].to_i)
+  end
 
 end
