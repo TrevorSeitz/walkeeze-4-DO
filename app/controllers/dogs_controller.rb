@@ -12,7 +12,7 @@ class DogsController < ApplicationController
     @dog = current_user.dogs.build(dog_params)
     @dog.save
     if @dog.valid?
-      redirect_to user_path(@user)
+      render json: @dog, status: 201
     else
       redirect_to new_dog_path
     end
@@ -24,6 +24,14 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @walks = @dog.walks
+    render :json => {:dog => @dog, :walks=> @walks}
+  end
+
+  def schedule
+    @dog = Dog.find(params[:id])
+    @walks = @dog.walks
+    render json: @walks, status: 201
   end
 
   private
