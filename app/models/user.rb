@@ -4,8 +4,8 @@ class User< OmniAuth::Identity::Models::ActiveRecord
   validates_uniqueness_of :email
 
       #Mounts paperclip image
-  has_attached_file :image, :styles => { :large => "900>", :medium => width = "600>", :small => width = "300>", :thumb => "100>" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  has_one_attached :image #, :styles => { :large => "900>", :medium => width = "600>", :small => width = "300>", :thumb => "100>" }
+  # validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   has_many :dogs
   has_many :walks, through: :dogs

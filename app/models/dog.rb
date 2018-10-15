@@ -5,9 +5,9 @@ class Dog < ApplicationRecord
   has_many :dogs_walks
   has_many :walks, through: :dogs_walks
 
-    #Mounts paperclip image
-  has_attached_file :image, :styles => { :large => "900>", :medium => width = "600>", :small => width = "300>", :thumb => "100>" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  #Mounts paperclip image
+has_one_attached :image #, :styles => { :large => "900>", :medium => width = "600>", :small => width = "300>", :thumb => "100>" }
+# validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   accepts_nested_attributes_for :dogs_walks
 

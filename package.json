@@ -2,6 +2,7 @@
   "name": "new_project",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.1.3",
     "materialize-css": "^1.0.0-rc.2"
   }
 }
