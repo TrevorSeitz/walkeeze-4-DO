@@ -9,6 +9,7 @@ class DogsController < ApplicationController
   end
 
   def create
+    byebug
     @dog = current_user.dogs.build(dog_params)
     @dog.save
     if @dog.valid?
@@ -26,6 +27,10 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
     @walks = @dog.walks
     render :json => {:dog => @dog, :walks=> @walks}
+    # respond_to do |format|
+    #   format.html
+    #   format.json {render json: @dog, include: [:walks]} - use to add walks to dog show on user page
+    # end
   end
 
   def schedule
