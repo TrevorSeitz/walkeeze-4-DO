@@ -1,1 +1,11 @@
-<%= render partial: 'form', locals: { user: @user, dog: @dog, dogs: @dogs } %>
+<div class="row">
+  <div class="column">
+    <%= render partial: 'form', locals: { user: @user, dog: @dog, dogs: @dogs } %>
+  </div>
+  <div class="column">
+    <div class="dog">
+    </div>
+    <div class="walks">
+    </div>
+  </div>
+</div>
