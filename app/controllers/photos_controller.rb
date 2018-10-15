@@ -11,6 +11,11 @@ class PhotosController < ApplicationController
     @photo = Photo.new
    end
 
+   def update
+    @user = User.find(params[:id])
+    @user.update_attribute(:image, params[:user][:image])
+   end
+
    #Create action ensures that submitted photo gets created if it meets the requirements
    def create
     # @photo = Photo.new(photo_params)

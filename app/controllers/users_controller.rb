@@ -13,12 +13,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-      byebug
     @user.update(name: params[:name], email: params[:email])
 
-    # flash[:notice] = "Update Successful"
     redirect_to edit_user_path(@user), notice: "Update Successful"
-    
   end
 
 

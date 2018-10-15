@@ -9,8 +9,26 @@
     flex: 50%;
 }
 
+.column3 {
+    flex: 33.3%;
+    font-size: 1em;
+    border: 1px solid red;
+    background-color: rgba(153, 153, 153, 0.8); //63 101 14 green
+}
+
+.column3-1 {
+    flex: 25%;
+    font-size: 1em;
+    border: 1px solid red;
+}
+.column3-2 {
+    flex: 75%;
+    font-size: 1em;
+    border: 1px solid red;
+}
+
 .dog {
-  margin-top: 10%;
-  font-size: 2em;
+  // margin-top: 5%;
+  font-size: 1em;
 
 }

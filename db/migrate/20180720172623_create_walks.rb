@@ -3,7 +3,7 @@ class CreateWalks < ActiveRecord::Migration[5.2]
     create_table :walks do |t|
       t.string :walker_name
       t.date :date
-      t.time :time
+      t.string :time
       t.integer :length
       t.integer :available_spots
       t.text :notes

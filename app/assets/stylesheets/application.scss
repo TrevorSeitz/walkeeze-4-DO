@@ -13,5 +13,17 @@
  *= require_tree .
  *= require_self
  */
- @import 'bootstrap-sprockets';
+ // @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+.hero-image {
+      background: url('IMG_9850.jpg') no-repeat center center fixed;
+      width: 100%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
+  .navbar {
+    background-color: rgba(63, 101, 14, 0.8); //63 101 14 green
+  }
