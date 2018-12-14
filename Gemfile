@@ -36,7 +36,7 @@ gem 'jquery-rails'
 gem 'jquery'
 gem 'bootstrap'
 #gem 'bootstrap-sass'
-gem "paperclip", ">= 5.2.0"
+gem 'paperclip', '>= 5.2.0'
 gem 'materialize-sass'
 # gem 'jquery_ujs'
 # Use ActiveStorage variant
